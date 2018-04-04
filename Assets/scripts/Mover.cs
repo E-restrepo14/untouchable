@@ -6,25 +6,39 @@ using UnityEngine;
 public class Mover : MonoBehaviour 
 
 {
-	
-	public GameObject piernas;
-	public GameObject piernasparadas;
-	public Transform FuncionalSpawner;
-	public float fireRate;
+
+    [SerializeField]
+    GameObject piernas;
+    [SerializeField]
+    GameObject piernasparadas;
+    [SerializeField]
+    Transform FuncionalSpawner;
+    [SerializeField]
+    float fireRate;
 
 	private float nextFire;
 
-	public GameObject AlertaPerdioUnTurno;
-	public GameObject SeñalPico;
+    [SerializeField]
+    GameObject AlertaPerdioUnTurno;
+    [SerializeField]
+    GameObject SeñalPico;
 
-	public Transform[] carriles;
-	public GameObject[] cubitos;
- 	public float rapidez;
-	public int count;
-	public int porcentajedenitro;
-	public Text cointext;
-	public static bool turnosperdidos= false;
-	public static bool pico = false;
+    [SerializeField]
+    Transform[] carriles;
+    [SerializeField]
+    GameObject[] cubitos;
+    [SerializeField]
+    float rapidez;
+    [SerializeField]
+    int count;
+    [SerializeField]
+    int porcentajedenitro;
+    [SerializeField]
+    Text cointext;
+    [SerializeField]
+    static bool turnosperdidos= false;
+    [SerializeField]
+    static bool pico = false;
 
 
 	Transform carril;
