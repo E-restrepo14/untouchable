@@ -9,8 +9,9 @@ public class Moneda : AssetsMobiles
         if (other.CompareTag("Player"))
         {
             Sonar(privateAudio);
+			GameManager.Instance.SubirTurbo ();
 
-            Enemigo.GetComponent<EnemyScript>().StartCoroutine("RetrocederEnemigo");
+			Enemigo.GetComponent<EnemyScript>().StartCoroutine("RetrocederEnemigo");
 
             //gameObject.SetActive(false);
         }

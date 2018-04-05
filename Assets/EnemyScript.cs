@@ -13,15 +13,28 @@ public class EnemyScript : MonoBehaviour
 
     public IEnumerator AvanzarEnemigo()
     {
-        int contador = 0;
+		int contador = 0;
+		while (contador < 5)
+		{
+			
+			Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
+			Time.timeScale -= 0.02f;  
+			transform.Translate(0, 0, 0.2f);
+			yield return new WaitForSeconds(0.0f);
+			contador++;
+		} 
 
-        while (contador < 4)
-        {
-            transform.Translate(0, 0, 0.25f);
-            yield return new WaitForSeconds(0.0f);
+		int contador2 = 0;
+		while (contador2 < 5) 
+		{
+			Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
+			Time.timeScale += 0.02f; 
+			yield return new WaitForSeconds(0.0f);
 
-            contador++;
-        }
+			contador2++;
+		}
+		
+        
     }
 
     public IEnumerator AdelantarEnemigo()
@@ -39,15 +52,51 @@ public class EnemyScript : MonoBehaviour
 
     public IEnumerator RetrocederEnemigo()
     {
-        int contador = 0;
+		int contador = 0;
+		while (contador < 5)
+		{
 
-        while (contador < 4)
-        {
-            transform.Translate(0, 0, -0.125f);
-            yield return new WaitForSeconds(0.0f);
+			Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
+			Time.timeScale -= 0.02f;  
+			transform.Translate(0, 0, -0.1f);
+			yield return new WaitForSeconds(0.0f);
+			contador++;
+		} 
 
-            contador++;
-        }
+		int contador2 = 0;
+		while (contador2 < 5) 
+		{
+			Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
+			Time.timeScale += 0.02f; 
+			yield return new WaitForSeconds(0.0f);
+
+			contador2++;
+		}
     }
+
+	public IEnumerator MeterPique()
+	{
+		int contador = 0;
+		while (contador < 30)
+		{
+			Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
+			Time.timeScale += 0.01f; 
+			transform.Translate(0, 0, -0.1f);
+			yield return new WaitForSeconds(0.0f);
+
+			contador++;
+		} 
+
+		int contador2 = 0;
+		while (contador2 < 30) 
+		{
+			Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
+			Time.timeScale -= 0.01f;  
+			yield return new WaitForSeconds(0.0f);
+
+			contador2++;
+		}
+
+	}
 
 }
