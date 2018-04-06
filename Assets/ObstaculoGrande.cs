@@ -8,10 +8,11 @@ public class ObstaculoGrande : AssetsMobiles
     {
         if (other.CompareTag("Player"))
         {
+           
             if (Input.GetAxis("Horizontal") != 0)
             {
                 Sonar(privateAudio);
-
+                other.gameObject.GetComponent<PlayerMovement>().StartCoroutine("Caerse");
                 Enemigo.GetComponent<EnemyScript>().StartCoroutine("AdelantarEnemigo");
                 StartCoroutine("Realentizar");
             }

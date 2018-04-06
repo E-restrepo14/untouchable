@@ -10,7 +10,7 @@ public class Moneda : AssetsMobiles
         {
             Sonar(privateAudio);
 			GameManager.Instance.SubirTurbo ();
-
+            GameManager.Instance.AlterarTotalMonedas(1);
 			Enemigo.GetComponent<EnemyScript>().StartCoroutine("RetrocederEnemigo");
 
             //gameObject.SetActive(false);

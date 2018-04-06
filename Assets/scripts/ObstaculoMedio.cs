@@ -10,7 +10,7 @@ public class ObstaculoMedio : AssetsMobiles
         {
 
             Sonar(privateAudio);
-
+            other.gameObject.GetComponent<PlayerMovement>().StartCoroutine("Caerse");
             Enemigo.GetComponent<EnemyScript>().StartCoroutine("AvanzarEnemigo");
             StartCoroutine("Realentizar");
         }

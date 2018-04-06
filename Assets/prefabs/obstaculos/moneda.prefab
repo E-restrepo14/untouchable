@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33294244294470852}
   - component: {fileID: 23524635217645064}
   - component: {fileID: 82482090717438904}
-  - component: {fileID: 65274017197715974}
   - component: {fileID: 114858219278570868}
+  - component: {fileID: 65274017197715974}
   m_Layer: 0
   m_Name: moneda
   m_TagString: Untagged
@@ -190,5 +190,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -20
   privateAudio: {fileID: 8300000, guid: 9529fadcc1f6d7347889e429449ab3fb, type: 3}
-  jugador: {fileID: 0}
+  Enemigo: {fileID: 0}
   source: {fileID: 82482090717438904}
