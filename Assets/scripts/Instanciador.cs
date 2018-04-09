@@ -36,6 +36,7 @@ public class Instanciador : MonoBehaviour
     private void Update()
     {
         Instanciar();
+        
     }
 
     [SerializeField]
@@ -47,7 +48,7 @@ public class Instanciador : MonoBehaviour
     void Instanciar()
     {
 
-        if (estaJugando == true)
+        if (estaJugando == true && (GameManager.Instance.tiempoLimite - 15f) > 0)
         {
 
             while (Time.fixedTime > waitTime)

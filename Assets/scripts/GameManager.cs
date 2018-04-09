@@ -23,17 +23,20 @@ public class GameManager : MonoBehaviour
     private Text timeText;
     [SerializeField]
     private Text coinText;
-    private float tiempoLimite = 100f;
+    public AudioSource source;
+    public float tiempoLimite = 170f;
 
     int seleccionar;
+
+   
 
 	private void Awake()
 	{
 		enemigo = GameObject.FindGameObjectWithTag("EnemyTag");
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.clip =Theme;
-        audio.volume = 0.3f;
-        audio.Play();
+        source = GetComponent<AudioSource>();
+        source.clip =Theme;
+        source.volume = 0.3f;
+        source.Play();
 
 		if (Instance == null) 
 		{
@@ -53,6 +56,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     float speed;   
     public Transform Target;
+
+    //el argumento proximo de este void es el numero de nivel que va a iniciar
+    public void IniciarNivel()
+    {
+        tiempoLimite = 30f;
+        Instanciador.Instance.estaJugando = true;
+        enemigo.transform.position = new Vector3(-2f,0.512f,0.595f);
+    }
 
     public void AlterarTotalMonedas(int valor)
     {
@@ -83,9 +94,22 @@ public class GameManager : MonoBehaviour
     private void Update()
 	{
         tiempoLimite -= Time.deltaTime;
-        if (tiempoLimite >1)
+        if (tiempoLimite >0)
         {
             timeText.text = "Timer: " + tiempoLimite.ToString("f0");
+        }
+        if (tiempoLimite < 1 && tiempoLimite > 0.9f)
+        {
+            print("se acavo el tiempo");
+            if (enemigo.transform.position.z < 0)
+            {
+                UiManager.Instance.Ganar();
+            }
+            else
+            {
+                UiManager.Instance.Perder();
+            }
+            tiempoLimite = 0.88f;
         }
 
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {

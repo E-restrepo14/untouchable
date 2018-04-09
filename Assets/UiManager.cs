@@ -6,34 +6,15 @@ using UnityEngine.UI;
 public class UiManager : MonoBehaviour
 {
     public static UiManager Instance;
+    public bool estaPausado = false;
+    [SerializeField]
+    private GameObject winSprite;
+    [SerializeField]
+    private GameObject looseSprite;
+    [SerializeField]
+    private GameObject backGround;
 
-    [SerializeField]
-    private GameObject background;
-    [SerializeField]
-    private GameObject menuMenu;
-    [SerializeField]
-    private GameObject menuSalir;
-    [SerializeField]
-    private GameObject menuInstrucciones;
-    [SerializeField]
-    private GameObject bienvenida;
-    [SerializeField]
-    private GameObject hasPerdido;
-    [SerializeField]
-    private GameObject hasGanado;
-    [SerializeField]
-    private GameObject menuNivel;
-    [SerializeField]
-    private GameObject menuSkins;
-    [SerializeField]
-    private GameObject menuBicicletas;
-    [SerializeField]
-    private GameObject menuTienda;
-    [SerializeField]
-    private GameObject menuPausa;
-    
-    //=============================================
-    private void Awake ()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -44,6 +25,40 @@ public class UiManager : MonoBehaviour
             Destroy(this);
         }
     }
+    //==================================================
+
+    public void Ganar()
+    {       
+        MostrarCosa(winSprite);
+        MostrarCosa(backGround);
+        estaPausado = true;
+        Time.timeScale = 0.0F;
+        Time.fixedDeltaTime = 0.02F * Time.timeScale;
+    }
+    public void Perder()
+    {
+        MostrarCosa(looseSprite);
+        MostrarCosa(backGround);
+        estaPausado = true;
+        Time.timeScale = 0.0F;
+        Time.fixedDeltaTime = 0.02F * Time.fixedTime;
+    }
+
+    public void Pausar()
+    {
+        estaPausado = !estaPausado;
+
+        if (estaPausado == true)
+        {
+            Time.timeScale = 0.0F;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+        Time.fixedDeltaTime = 0.02F * Time.timeScale;
+    }
+    
 
     public void MostrarCosa(GameObject cosa)
     {
@@ -54,14 +69,9 @@ public class UiManager : MonoBehaviour
         cosa.SetActive(false);
     }
 
-    public void Pausar()
-    {
-       //para esta se tiene que acceder al gamemanager
-    }
-
     public void Salir()
     {
-        //para salir del a aplicacion
+        Application.Quit();
     }
 
 }

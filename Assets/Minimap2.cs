@@ -6,21 +6,24 @@ public class Minimap2 : MonoBehaviour
 {
     public GameObject miniEnemigo;
     RectTransform m_RectTransform;
-    private float posicionAvanzada ;
-
+    private float t;
+    private float t2;
+    private float t3;
     void Start()
     {
         miniEnemigo = GameObject.FindGameObjectWithTag("EnemyTag");
 
         m_RectTransform = GetComponent<RectTransform>();
-
-        posicionAvanzada = -100f;
+        
+        t = GameManager.Instance.tiempoLimite;
     }
 
     private void Update()
     {
-        posicionAvanzada += 0.25f;
-        //este posicion avanzada la voy a reemplazar por un lerp de -100 a 100 en lo que termine el tiempo limite del nivel
-        m_RectTransform.anchoredPosition = new Vector2(0, posicionAvanzada);
+        t2 = GameManager.Instance.tiempoLimite;
+        
+        t3 = t2/t;
+        
+        m_RectTransform.anchoredPosition = new Vector2(0, Mathf.Lerp(100, -100, t3));
     }
 }
