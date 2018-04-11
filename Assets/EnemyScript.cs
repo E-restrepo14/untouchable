@@ -19,11 +19,11 @@ public class EnemyScript : MonoBehaviour
     public IEnumerator AvanzarEnemigo()
     {
 		int contador = 0;
-        UiManager.Instance.OcultarCosa(pauseSprite);
+        
 		while (contador < 5)
 		{
-			
-			Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
+            UiManager.Instance.OcultarCosa(pauseSprite);
+            Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
             Time.timeScale -= 0.02f;
             transform.Translate(0, 0, 0.2f);
            
@@ -35,7 +35,8 @@ public class EnemyScript : MonoBehaviour
 		int contador2 = 0;
 		while (contador2 < 5) 
 		{
-			Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
+            UiManager.Instance.OcultarCosa(pauseSprite);
+            Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
             Time.timeScale += 0.02f;
             yield return new WaitForSeconds(0.0f);
 
@@ -49,9 +50,10 @@ public class EnemyScript : MonoBehaviour
     public IEnumerator AdelantarEnemigo()
     {
         int contador = 0;
-        UiManager.Instance.OcultarCosa(pauseSprite);
+        
         while (contador < 8)
         {
+            UiManager.Instance.OcultarCosa(pauseSprite);
             transform.Translate(0, 0, 0.05f);
             yield return new WaitForSeconds(0.0f);
 
@@ -63,11 +65,11 @@ public class EnemyScript : MonoBehaviour
     public IEnumerator RetrocederEnemigo()
     {
 		int contador = 0;
-        UiManager.Instance.OcultarCosa(pauseSprite);
+        
         while (contador < 5)
 		{
-
-			Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
+            UiManager.Instance.OcultarCosa(pauseSprite);
+            Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
             Time.timeScale -= 0.02f;
             transform.Translate(0, 0, -0.1f);
 			yield return new WaitForSeconds(0.0f);
@@ -77,7 +79,8 @@ public class EnemyScript : MonoBehaviour
 		int contador2 = 0;
 		while (contador2 < 5) 
 		{
-			Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
+            UiManager.Instance.OcultarCosa(pauseSprite);
+            Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
             Time.timeScale += 0.02f;
             yield return new WaitForSeconds(0.0f);
 

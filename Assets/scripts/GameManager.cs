@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
 	public GameObject enemigo;
 	public int turbo = 0;
     public int monedas;
+    public int levelnum;
+
+    [SerializeField]
+    private GameObject botonNivel2;
+    [SerializeField]
+    private GameObject botonNivel3;
 
     [SerializeField]
     private Image turboSprite;
@@ -35,7 +41,7 @@ public class GameManager : MonoBehaviour
 		enemigo = GameObject.FindGameObjectWithTag("EnemyTag");
         source = GetComponent<AudioSource>();
         source.clip =Theme;
-        source.volume = 0.3f;
+        source.volume = 0.5f;
         source.Play();
 
 		if (Instance == null) 
@@ -57,10 +63,29 @@ public class GameManager : MonoBehaviour
     float speed;   
     public Transform Target;
 
+    public void SelectNivel(int n)
+    {
+        levelnum = n;
+    }
+
+    public void Desbloquearnivel()
+    {
+        if (levelnum == 1)
+        {
+            botonNivel2.GetComponent<Button>().interactable = true;
+        }
+        if (levelnum == 2)
+        {
+            botonNivel3.GetComponent<Button>().interactable = true;
+        }
+
+    }
+
     //el argumento proximo de este void es el numero de nivel que va a iniciar
     public void IniciarNivel()
     {
         tiempoLimite = 30f;
+        Instanciador.Instance.NextTime = 0.15f-(0.03f*(levelnum-1));
         Instanciador.Instance.estaJugando = true;
         enemigo.transform.position = new Vector3(-2f,0.512f,0.595f);
     }
@@ -139,20 +164,23 @@ public class GameManager : MonoBehaviour
 		}
 
 		if (Input.GetKeyDown (KeyCode.T)) {
-			if (turbo >3) {
-				enemigo.GetComponent<EnemyScript>().StartCoroutine("MeterPique");
-				turbo-= 4;
-			}
-            if (turbo < 3)
+            if (UiManager.Instance.estaPausado == false)
             {
-                turboSprite.enabled = false;
-                t2.enabled = false;
+                if (turbo > 3)
+                {
+                    enemigo.GetComponent<EnemyScript>().StartCoroutine("MeterPique");
+                    turbo -= 4;
+                }
+                if (turbo < 3)
+                {
+                    turboSprite.enabled = false;
+                    t2.enabled = false;
+                }
+                if (turbo < 7)
+                {
+                    turboSprite2.enabled = false;
+                }
             }
-            if (turbo < 7)
-            {
-                turboSprite2.enabled = false;
-            }
-
         }
 
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {

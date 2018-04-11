@@ -59,6 +59,11 @@ public class UiManager : MonoBehaviour
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
     }
     
+    public void CambiarVolumen(GameObject slider)
+    {
+        float volume = slider.GetComponent<Slider>().value;
+        GameManager.Instance.source.volume = volume;
+    }
 
     public void MostrarCosa(GameObject cosa)
     {
