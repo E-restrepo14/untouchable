@@ -5,6 +5,26 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
+    
+    [SerializeField]
+    private GameObject skin2;
+    [SerializeField]
+    private GameObject skin3;
+    [SerializeField]
+    private GameObject skin4;
+
+    
+    [SerializeField]
+    private GameObject bike2;
+    [SerializeField]
+    private GameObject bike3;
+    [SerializeField]
+    private GameObject bike4;
+
+    public GameObject personaje;
+
+    public GameObject bicicleta;
+
     public static UiManager Instance;
     public bool estaPausado = false;
     [SerializeField]
@@ -64,6 +84,39 @@ public class UiManager : MonoBehaviour
         float volume = slider.GetComponent<Slider>().value;
         GameManager.Instance.source.volume = volume;
     }
+
+    public void CambiarPersonaje(Material NewMaterial)
+    {
+        personaje.GetComponent<Renderer>().material = NewMaterial;
+    }
+
+    public void CambiarBicicleta(Material NewMaterial)
+    {
+        bicicleta.GetComponent<Renderer>().material = NewMaterial;
+    }
+
+    public void Desbloquearnivel()
+    {
+        if (GameManager.Instance.levelnum == 1)
+        {
+            GameManager.Instance.botonNivel2.GetComponent<Button>().interactable = true;
+            skin2.GetComponent<Button>().interactable = true;
+            bike2.GetComponent<Button>().interactable = true;
+        }
+        if (GameManager.Instance.levelnum == 2)
+        {
+            GameManager.Instance.botonNivel3.GetComponent<Button>().interactable = true;
+            skin3.GetComponent<Button>().interactable = true;
+            bike3.GetComponent<Button>().interactable = true;
+        }
+        if (GameManager.Instance.levelnum == 3)
+        {
+            skin4.GetComponent<Button>().interactable = true;
+            bike4.GetComponent<Button>().interactable = true;
+        }
+
+    }
+
 
     public void MostrarCosa(GameObject cosa)
     {

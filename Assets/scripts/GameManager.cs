@@ -11,13 +11,11 @@ public class GameManager : MonoBehaviour
     public AudioClip Theme;
 	public GameObject enemigo;
 	public int turbo = 0;
-    public int monedas;
+    public int monedas = 4;
     public int levelnum;
 
-    [SerializeField]
-    private GameObject botonNivel2;
-    [SerializeField]
-    private GameObject botonNivel3;
+    public GameObject botonNivel2;
+    public GameObject botonNivel3;
 
     [SerializeField]
     private Image turboSprite;
@@ -68,18 +66,7 @@ public class GameManager : MonoBehaviour
         levelnum = n;
     }
 
-    public void Desbloquearnivel()
-    {
-        if (levelnum == 1)
-        {
-            botonNivel2.GetComponent<Button>().interactable = true;
-        }
-        if (levelnum == 2)
-        {
-            botonNivel3.GetComponent<Button>().interactable = true;
-        }
-
-    }
+ 
 
     //el argumento proximo de este void es el numero de nivel que va a iniciar
     public void IniciarNivel()
@@ -88,6 +75,22 @@ public class GameManager : MonoBehaviour
         Instanciador.Instance.NextTime = 0.15f-(0.03f*(levelnum-1));
         Instanciador.Instance.estaJugando = true;
         enemigo.transform.position = new Vector3(-2f,0.512f,0.595f);
+        if (ItemsManager.Instance.hayPastilla == true)
+        {
+            ItemsManager.Instance.frenoPastilla.GetComponent<Button>().interactable = true;
+        }
+        if (ItemsManager.Instance.hayDisco == true)
+        {
+            ItemsManager.Instance.frenoDisco.GetComponent<Button>().interactable = true;
+        }
+        if (ItemsManager.Instance.hayRuedas == true)
+        {
+            ItemsManager.Instance.ruedas.GetComponent<Button>().interactable = true;
+        }
+        if (ItemsManager.Instance.hayRodamiento == true)
+        {
+            ItemsManager.Instance.rodamiento.GetComponent<Button>().interactable = true;
+        }
     }
 
     public void AlterarTotalMonedas(int valor)

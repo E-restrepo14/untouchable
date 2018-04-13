@@ -24,7 +24,7 @@ public class EnemyScript : MonoBehaviour
 		{
             UiManager.Instance.OcultarCosa(pauseSprite);
             Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
-            Time.timeScale -= 0.02f;
+            //Time.timeScale -= 0.02f;
             transform.Translate(0, 0, 0.2f);
            
             
@@ -37,7 +37,7 @@ public class EnemyScript : MonoBehaviour
 		{
             UiManager.Instance.OcultarCosa(pauseSprite);
             Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
-            Time.timeScale += 0.02f;
+            //Time.timeScale += 0.02f;
             yield return new WaitForSeconds(0.0f);
 
 			contador2++;
@@ -70,7 +70,7 @@ public class EnemyScript : MonoBehaviour
 		{
             UiManager.Instance.OcultarCosa(pauseSprite);
             Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
-            Time.timeScale -= 0.02f;
+            //Time.timeScale -= 0.02f;
             transform.Translate(0, 0, -0.1f);
 			yield return new WaitForSeconds(0.0f);
 			contador++;
@@ -81,7 +81,7 @@ public class EnemyScript : MonoBehaviour
 		{
             UiManager.Instance.OcultarCosa(pauseSprite);
             Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
-            Time.timeScale += 0.02f;
+            //Time.timeScale += 0.02f;
             yield return new WaitForSeconds(0.0f);
 
 			contador2++;
@@ -97,7 +97,7 @@ public class EnemyScript : MonoBehaviour
 		{
             UiManager.Instance.OcultarCosa(pauseSprite);
             Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);            
-            Time.timeScale += 0.01f;
+            //Time.timeScale += 0.01f;
             transform.Translate(0, 0, -0.1f);
 			yield return new WaitForSeconds(0.0f);
 
@@ -109,7 +109,7 @@ public class EnemyScript : MonoBehaviour
 		{
             UiManager.Instance.OcultarCosa(pauseSprite);
             Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
-            Time.timeScale -= 0.01f;
+            //Time.timeScale -= 0.01f;
             yield return new WaitForSeconds(0.0f);
 
 			contador2++;
