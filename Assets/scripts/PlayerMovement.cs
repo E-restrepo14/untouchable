@@ -8,11 +8,15 @@ public class PlayerMovement : MonoBehaviour
     Camera m_MainCamera;
     Vector3 posicionDeLaCamara;
     
+	int i = 1;
+	int j = -1;
+	int contador = 0;
 
     private void Awake()
     {
         m_MainCamera = Camera.main;
         posicionDeLaCamara = m_MainCamera.transform.position;
+
     }
     //==============================================================================================================
 
@@ -26,6 +30,17 @@ public class PlayerMovement : MonoBehaviour
     void Update ()
     {
        
+
+		if (UiManager.Instance.estaPausado == false)
+		{
+			transform.rotation = Quaternion.Euler(0, 0, i*2);
+			i = i + j;
+			if (i <= -5 || i >= 5)
+			{
+				contador++;
+				j *= -1;
+			}
+		}
 
         posicionDeLaCamara = new Vector3 (Mathf.Lerp (posicionDeLaCamara.x,((transform.position.x) / 2f),0.1f), posicionDeLaCamara.y, posicionDeLaCamara.z);
         m_MainCamera.transform.position = posicionDeLaCamara;
