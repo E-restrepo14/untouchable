@@ -1,6 +1,47 @@
 # untouchable
 runner game
 
-GDD: https://drive.google.com/file/d/1Zof0qBpNCWLv9Lrqd9bgs3m-VHsXgKg9/view?usp=sharing
 
-GDC: https://drive.google.com/file/d/1k-_A0z9bM7Op_iEuOh9i-hxQuAooeMDC/view?usp=sharing
+### untouchable.
+In this project you are a bmx racer that search his parent
+
+### Getting Started
+first download and unzip the rar file inside a folder, and then open the .exe file, important not to delete the extra files
+
+https://drive.google.com/file/d/1GktBkppaF9za06GsgvfioustoZ3hHimL/view?usp=sharing
+
+### Prerequisites
+operating system windows, mac, or linux
+
+### Installing
+there is no need to install.
+
+### Built With
+Unity - the game engine
+
+### Versioning
+At the moment there are no different versions
+
+### Authors
+Emanuel Restrepo - Initial work
+
+jdk version 1.8.0_161, 
+
+### License
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
+### Acknowledgments
+the instructor Victor Hugo Cardona
+
+
+### links to the cloud files:
+
+executable: 
+https://drive.google.com/file/d/1GktBkppaF9za06GsgvfioustoZ3hHimL/view?usp=sharing
+
+GDD:
+https://docs.google.com/document/d/1HcXQEsbGGFZZpNqVXHctjSI0ZNCy6L0U7PnkPCNA8MQ/edit?usp=sharing
+
+GDC:
+https://docs.google.com/document/d/11zP8Oc42kXGOPZuw6IlNWyEsW7b4ujsFSQxPldoWmS0/edit?usp=sharing
+
