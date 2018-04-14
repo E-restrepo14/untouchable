@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour 
 {
-    
-
     public static GameManager Instance;
     public AudioClip Theme;
 	public GameObject enemigo;
@@ -34,16 +32,16 @@ public class GameManager : MonoBehaviour
 
     int seleccionar;
 
-   
+    public Transform[] carriles;
+    [SerializeField]
+    float speed;
+    public Transform Target;
 
-	private void Awake()
+    // en este script se almacenan valores muy importantes del juego como son las monedas, el tiempo limite del nivel, la cantidad de segundos de espera entre cada instancia de un 
+    //obstaculo y adorno en la escena y tambien esta clase guarda muchos subprocesos que implica cambiar el valor de muchas variables aca almacenadas.
+
+    private void Awake()
 	{
-		enemigo = GameObject.FindGameObjectWithTag("EnemyTag");
-        source = GetComponent<AudioSource>();
-        source.clip =Theme;
-        source.volume = 0.5f;
-        source.Play();
-
 		if (Instance == null) 
 		{
 			Instance = this;
@@ -54,23 +52,19 @@ public class GameManager : MonoBehaviour
 		}
 
         seleccionar = 1;
-        
+        enemigo = GameObject.FindGameObjectWithTag("EnemyTag");
+        source = GetComponent<AudioSource>();
+        source.clip = Theme;
+        source.volume = 0.5f;
+        source.Play();
     }
-
-
-    public Transform[] carriles;
-    [SerializeField]
-    float speed;   
-    public Transform Target;
 
     public void SelectNivel(int n)
     {
         levelnum = n;
     }
 
- 
-
-    //el argumento proximo de este void es el numero de nivel que va a iniciar
+    
     public void IniciarNivel()
     {
         tiempoLimite = 50f;
@@ -121,6 +115,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    // esta parte es el update que verifica las acciones del jugador y en base a estas le ordena a otros script como el playercontroler mover al personaje por ejemplo
     #region void update de get axis y activar turbo 
     private void Update()
 	{
@@ -211,12 +206,4 @@ public class GameManager : MonoBehaviour
 
 	}
     #endregion
-
-    //este parte era para ser llamado con un nodo, recibia la posicion directamente
-    // la idea era para que el juego estuviera para celular, pero ni de chiste aguantaría ahi
-    //    public void SeleccionarCarril(int indiceInt)
-    //  {
-
-    //    seleccionar = indiceInt;
-    //}
 }

@@ -17,21 +17,10 @@ public class NodoNew : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         indice = (transform.position.x) + 1;
-
-        if (indice > -1 & indice < 1)
-            indiceInt = 0 ;
-
-        if (indice > 0 & indice < 2)
-            indiceInt = 1;
-
-        if (indice > 1 & indice < 3)
-            indiceInt = 2;
-
-        if (indice > 2 & indice < 4)
-            indiceInt = 3;
-
     }
 
+    // este script se encuentra dentro de un empty con collider en la posicion de cada uno de los cuatro carriles de la pista, y cada que detectan que el jugador entra en ellos, 
+    //se da la orden a un audiosource que reproduzca el sonido de un derrape
    
     private void OnTriggerEnter(Collider other)
     {

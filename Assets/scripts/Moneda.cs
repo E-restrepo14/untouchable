@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Moneda : AssetsMobiles
 {
+    //esta clase de obstaculos, tiene unas instrucciones que seguir cuando colisiona con el jugador
+    // como atrasar la posicion del enemigo e ingresar a otros scripts y alterar valores que se almacenan en estos
+
     new public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -12,8 +15,6 @@ public class Moneda : AssetsMobiles
 			GameManager.Instance.SubirTurbo ();
             GameManager.Instance.AlterarTotalMonedas(1);
 			Enemigo.GetComponent<EnemyScript>().StartCoroutine("RetrocederEnemigo");
-
-            //gameObject.SetActive(false);
         }
 
         if (other.CompareTag("Destructor"))

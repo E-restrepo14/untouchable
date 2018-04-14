@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Minimapenemy : MonoBehaviour
 {
+    // este script lo posee una imagen del canvas que sirve a modo de indicador en el hud, sobre que tan adelante esta el enemigo con respecto a la posicion del jugador,  
 
     public GameObject miniEnemigo;
     RectTransform m_RectTransform;

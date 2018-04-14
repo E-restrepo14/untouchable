@@ -21,19 +21,21 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     private GameObject bike4;
 
-    public GameObject personaje;
 
+    public GameObject personaje;
     public GameObject bicicleta;
 
-    public static UiManager Instance;
-    public bool estaPausado = false;
+
     [SerializeField]
     private GameObject winSprite;
     [SerializeField]
     private GameObject looseSprite;
     [SerializeField]
     private GameObject backGround;
+    public static UiManager Instance;
+    public bool estaPausado;
 
+    // este como varios otros singletons en la escena. almacenan variables que otros scripts toman y modifican para modificar las funciones de otros script que toman estas variables como argumentos
     private void Awake()
     {
         if (Instance == null)
@@ -47,6 +49,8 @@ public class UiManager : MonoBehaviour
     }
     //==================================================
 
+        // todos estos son subprocesos que se manejan desde botones y sliders en el hud unicamente
+
     public void Ganar()
     {       
         MostrarCosa(winSprite);
@@ -55,6 +59,7 @@ public class UiManager : MonoBehaviour
         Time.timeScale = 0.0F;
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
     }
+
     public void Perder()
     {
         MostrarCosa(looseSprite);

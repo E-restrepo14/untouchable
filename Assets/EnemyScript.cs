@@ -11,6 +11,9 @@ public class EnemyScript : MonoBehaviour
 	int j = -1;
 	int contador = 0;
 
+    // el enemigo es un game object muy simple que lo unico que se necesita que haga, es girar en el eje z automaticamente simulando una animacion de pedalear en una bicicleta
+    // ademas este script tiene cuatro subprocesos que son llamados desde muchos otros scripts
+
     private void Start()
     {
         EnemyPosition = transform.position;
@@ -31,6 +34,7 @@ public class EnemyScript : MonoBehaviour
 		}
 	}
     
+    //===================================================================
 
     public IEnumerator AvanzarEnemigo()
     {

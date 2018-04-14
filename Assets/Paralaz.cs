@@ -10,7 +10,7 @@ public class Paralaz : MonoBehaviour
     [SerializeField]
     private Vector3 newPosicion;
 
-
+    // este script lo tendran una clase especial de assets que adornan la escena y esto hace que los assets avancen y reaparezcan en una posicion cuando llegan mas allá de un limite.
 
     void Update()
     {

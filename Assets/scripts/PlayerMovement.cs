@@ -16,21 +16,18 @@ public class PlayerMovement : MonoBehaviour
     {
         m_MainCamera = Camera.main;
         posicionDeLaCamara = m_MainCamera.transform.position;
-
     }
     //==============================================================================================================
 
     #region Movimiento 
     [SerializeField]
     Transform [] carriles;
-//  este float speed era necesario para hacer una transicion del jugador desde una posicion a otra, pero como laguea mucho la voy a quitar
-//    [SerializeField]
-//    float speed;
+
     
     void Update ()
     {
        
-
+        // lo que está dentro de este if, es solo para decorar la animacion del pedaleo del ciclista, ya que esta se ve muy rigida y antinatural
 		if (UiManager.Instance.estaPausado == false)
 		{
 			transform.rotation = Quaternion.Euler(0, 0, i*2);
@@ -42,10 +39,12 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
+        // la camara se desplazará en x. la mitad de lo que se desplace el personaje principal y lo hará con una transicion de un lerp.
         posicionDeLaCamara = new Vector3 (Mathf.Lerp (posicionDeLaCamara.x,((transform.position.x) / 2f),0.1f), posicionDeLaCamara.y, posicionDeLaCamara.z);
         m_MainCamera.transform.position = posicionDeLaCamara;
-        //transform.position = new Vector3 (Mathf.Lerp(transform.position.x, GameManager.Instance.Target.position.x, speed * Time.deltaTime), transform.position.y, transform.position.z);
         transform.position = new Vector3(GameManager.Instance.Target.position.x, transform.position.y, transform.position.z);
+
+        // en este codigo no se encuentran los controles del jugador, un game manager se encarga de darle estas ordenes, entre otras como esta coroutine de abajo
     }
     #endregion
 

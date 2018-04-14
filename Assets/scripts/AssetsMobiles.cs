@@ -11,7 +11,7 @@ public class AssetsMobiles : MonoBehaviour {
 
     public AudioSource source;
 
-
+    // esta clase se creó para almacenar comportamientos que tienen en comun varias clases como son obstaculomedio, obstaculogrande y la moneda
 	public void Awake ()
     {
         source = GetComponent<AudioSource>();
@@ -41,13 +41,7 @@ public class AssetsMobiles : MonoBehaviour {
         source.PlayOneShot(Audioageno,Random.Range(0.7f,1.0f));
     }
 
-    public IEnumerator Realentizar()
-    {
-        Time.timeScale = 0.7F;
-        yield return new WaitForSeconds(0.5f);
-        Time.timeScale = 1.0F;
-
-    }
+   
 
 
 

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-  
+
+    // esta script es para simular el avance del personaje... moviendo la textura del piso hacia una direccion, 
+     
     [SerializeField]
     private float cloudsSpeed;
     [SerializeField]
     private Material privateMaterial;
 
-    // Update is called once per frame
     void Update ()
     {
 

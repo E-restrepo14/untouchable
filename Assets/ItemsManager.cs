@@ -5,15 +5,9 @@ using UnityEngine.UI;
 
 public class ItemsManager : MonoBehaviour
 {
-    // dentro de este script habran cuatro metodos que implican comprar los items de un solo uso y los de varios usos 
-    // este tambien los muestra en el hud 
-
-        //ojito a la funcion de iniciar nivel... si estas variables lo indican... hacer el setactive del hud de los items.     checked
-
-    //y dentro de este script estan los metodos de activar estos items... que unicamente se accederan a estos metodos mediante el mismo hud de botones.
-
-    //a la mecanica de meterle el nitro... se activara automaticamente cuando se deje de instanciar cosas. pero verificará desde este script si tiene permiso de hacerlo
-    // si es necesario meter el pique para no perder... que salga un sprite diciendo " si no aceleras ahora, no te servirá hacerlo mas adelante... opciones lo guardaré y acelerar "
+    // dentro de este script hay cuatro metodos que se llaman al comprar los items del menu de la tienda
+    // este script tambien habilita en el hud los botones que indican cuando estos items estan disponibles y los deshabilita tambien
+    // adicionalmente hay otros cuatro subprocesos que se llaman cuando estos items son gastados.
 
     public GameObject frenoPastilla;
     public GameObject frenoDisco;
@@ -41,8 +35,9 @@ public class ItemsManager : MonoBehaviour
             Destroy(this);
         }
     }
+    //===========================================================================
 
-
+    #region comprar items
     public void ComproPastilla()
     {
         if (hayDisco == false && hayPastilla == false)
@@ -94,6 +89,10 @@ public class ItemsManager : MonoBehaviour
             }
         }
     }
+    #endregion
+
+
+
     #region accionar items
     //=====================================================================
     public void gastarPastilla()
