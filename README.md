@@ -39,6 +39,9 @@ the instructor Victor Hugo Cardona
 executable: 
 https://drive.google.com/file/d/1GktBkppaF9za06GsgvfioustoZ3hHimL/view?usp=sharing
 
+Users test document:
+https://drive.google.com/file/d/1jzZfBj2r8TGxBx7Uf44mGrwmokoPmA93/view?usp=sharing
+
 GDD:
 https://docs.google.com/document/d/1HcXQEsbGGFZZpNqVXHctjSI0ZNCy6L0U7PnkPCNA8MQ/edit?usp=sharing
 
