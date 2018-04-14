@@ -7,6 +7,9 @@ public class EnemyScript : MonoBehaviour
     public Vector3 EnemyPosition;
     public GameObject pauseSprite;
     
+	int i = -4;
+	int j = -1;
+	int contador = 0;
 
     private void Start()
     {
@@ -14,17 +17,30 @@ public class EnemyScript : MonoBehaviour
         UiManager.Instance.Pausar();
     }
  
+	private void Update()
+	{
+		if (UiManager.Instance.estaPausado == false)
+		{
+			transform.rotation = Quaternion.Euler(0, 0, i*2);
+			i = i + j;
+			if (i <= -5 || i >= 5)
+			{
+				contador++;
+				j *= -1;
+			}
+		}
+	}
     
 
     public IEnumerator AvanzarEnemigo()
     {
 		int contador = 0;
-        UiManager.Instance.OcultarCosa(pauseSprite);
+        
 		while (contador < 5)
 		{
-			
-			Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
-            Time.timeScale -= 0.02f;
+            UiManager.Instance.OcultarCosa(pauseSprite);
+            Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
+            //Time.timeScale -= 0.02f;
             transform.Translate(0, 0, 0.2f);
            
             
@@ -35,8 +51,9 @@ public class EnemyScript : MonoBehaviour
 		int contador2 = 0;
 		while (contador2 < 5) 
 		{
-			Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
-            Time.timeScale += 0.02f;
+            UiManager.Instance.OcultarCosa(pauseSprite);
+            Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
+            //Time.timeScale += 0.02f;
             yield return new WaitForSeconds(0.0f);
 
 			contador2++;
@@ -49,9 +66,10 @@ public class EnemyScript : MonoBehaviour
     public IEnumerator AdelantarEnemigo()
     {
         int contador = 0;
-        UiManager.Instance.OcultarCosa(pauseSprite);
+        
         while (contador < 8)
         {
+            UiManager.Instance.OcultarCosa(pauseSprite);
             transform.Translate(0, 0, 0.05f);
             yield return new WaitForSeconds(0.0f);
 
@@ -63,12 +81,12 @@ public class EnemyScript : MonoBehaviour
     public IEnumerator RetrocederEnemigo()
     {
 		int contador = 0;
-        UiManager.Instance.OcultarCosa(pauseSprite);
+        
         while (contador < 5)
 		{
-
-			Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
-            Time.timeScale -= 0.02f;
+            UiManager.Instance.OcultarCosa(pauseSprite);
+            Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
+            //Time.timeScale -= 0.02f;
             transform.Translate(0, 0, -0.1f);
 			yield return new WaitForSeconds(0.0f);
 			contador++;
@@ -77,8 +95,9 @@ public class EnemyScript : MonoBehaviour
 		int contador2 = 0;
 		while (contador2 < 5) 
 		{
-			Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
-            Time.timeScale += 0.02f;
+            UiManager.Instance.OcultarCosa(pauseSprite);
+            Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);
+            //Time.timeScale += 0.02f;
             yield return new WaitForSeconds(0.0f);
 
 			contador2++;
@@ -94,7 +113,7 @@ public class EnemyScript : MonoBehaviour
 		{
             UiManager.Instance.OcultarCosa(pauseSprite);
             Camera.main.fieldOfView = (Camera.main.fieldOfView + 1);            
-            Time.timeScale += 0.01f;
+            //Time.timeScale += 0.01f;
             transform.Translate(0, 0, -0.1f);
 			yield return new WaitForSeconds(0.0f);
 
@@ -106,7 +125,7 @@ public class EnemyScript : MonoBehaviour
 		{
             UiManager.Instance.OcultarCosa(pauseSprite);
             Camera.main.fieldOfView = (Camera.main.fieldOfView - 1);
-            Time.timeScale -= 0.01f;
+            //Time.timeScale -= 0.01f;
             yield return new WaitForSeconds(0.0f);
 
 			contador2++;

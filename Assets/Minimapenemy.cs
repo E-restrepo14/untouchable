@@ -21,7 +21,9 @@ public class Minimapenemy : MonoBehaviour
     private void Update()
     {
         minienemyposition = (miniEnemigo.transform.position.z);
-
+		if ( minienemyposition < 11f)
+		{
         m_RectTransform.anchoredPosition = new Vector2(-45f, minienemyposition);
-    }
+		}
+	}
 }

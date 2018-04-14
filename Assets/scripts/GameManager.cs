@@ -11,7 +11,13 @@ public class GameManager : MonoBehaviour
     public AudioClip Theme;
 	public GameObject enemigo;
 	public int turbo = 0;
-    public int monedas;
+    public int monedas = 4;
+    public int levelnum;
+
+	private int i = 0;
+
+    public GameObject botonNivel2;
+    public GameObject botonNivel3;
 
     [SerializeField]
     private Image turboSprite;
@@ -35,7 +41,7 @@ public class GameManager : MonoBehaviour
 		enemigo = GameObject.FindGameObjectWithTag("EnemyTag");
         source = GetComponent<AudioSource>();
         source.clip =Theme;
-        source.volume = 0.3f;
+        source.volume = 0.5f;
         source.Play();
 
 		if (Instance == null) 
@@ -57,12 +63,37 @@ public class GameManager : MonoBehaviour
     float speed;   
     public Transform Target;
 
+    public void SelectNivel(int n)
+    {
+        levelnum = n;
+    }
+
+ 
+
     //el argumento proximo de este void es el numero de nivel que va a iniciar
     public void IniciarNivel()
     {
-        tiempoLimite = 30f;
+        tiempoLimite = 50f;
+		Instanciador.Instance.NextTime = (0.15f*2)-(0.03f*(levelnum-1));
         Instanciador.Instance.estaJugando = true;
         enemigo.transform.position = new Vector3(-2f,0.512f,0.595f);
+        i = 0;
+        if (ItemsManager.Instance.hayPastilla == true)
+        {
+            ItemsManager.Instance.frenoPastilla.GetComponent<Button>().interactable = true;
+        }
+        if (ItemsManager.Instance.hayDisco == true)
+        {
+            ItemsManager.Instance.frenoDisco.GetComponent<Button>().interactable = true;
+        }
+        if (ItemsManager.Instance.hayRuedas == true)
+        {
+            ItemsManager.Instance.ruedas.GetComponent<Button>().interactable = true;
+        }
+        if (ItemsManager.Instance.hayRodamiento == true)
+        {
+            ItemsManager.Instance.rodamiento.GetComponent<Button>().interactable = true;
+        }
     }
 
     public void AlterarTotalMonedas(int valor)
@@ -98,19 +129,23 @@ public class GameManager : MonoBehaviour
         {
             timeText.text = "Timer: " + tiempoLimite.ToString("f0");
         }
-        if (tiempoLimite < 1 && tiempoLimite > 0.9f)
+        if (tiempoLimite < 1 && tiempoLimite > 0)
         {
-            print("se acavo el tiempo");
-            if (enemigo.transform.position.z < 0)
-            {
-                UiManager.Instance.Ganar();
-            }
-            else
-            {
-                UiManager.Instance.Perder();
-            }
+			i ++;
+
+			if (i == 1)
+			{
+	            if (enemigo.transform.position.z < 0)
+	            {
+	                UiManager.Instance.Ganar();
+	            }
+	            else
+	            {
+	                UiManager.Instance.Perder();
+	            }
             tiempoLimite = 0.88f;
-        }
+			}
+		}
 
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			seleccionar = 0;
@@ -139,20 +174,23 @@ public class GameManager : MonoBehaviour
 		}
 
 		if (Input.GetKeyDown (KeyCode.T)) {
-			if (turbo >3) {
-				enemigo.GetComponent<EnemyScript>().StartCoroutine("MeterPique");
-				turbo-= 4;
-			}
-            if (turbo < 3)
+            if (UiManager.Instance.estaPausado == false)
             {
-                turboSprite.enabled = false;
-                t2.enabled = false;
+                if (turbo > 3)
+                {
+                    enemigo.GetComponent<EnemyScript>().StartCoroutine("MeterPique");
+                    turbo -= 4;
+                }
+                if (turbo < 3)
+                {
+                    turboSprite.enabled = false;
+                    t2.enabled = false;
+                }
+                if (turbo < 7)
+                {
+                    turboSprite2.enabled = false;
+                }
             }
-            if (turbo < 7)
-            {
-                turboSprite2.enabled = false;
-            }
-
         }
 
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {

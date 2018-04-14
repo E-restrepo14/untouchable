@@ -39,9 +39,8 @@ public class Instanciador : MonoBehaviour
         
     }
 
-    [SerializeField]
-    private float NextTime = 0.15f;
     
+    public float NextTime = 0.15f;
     [SerializeField]
     private float waitTime = 0;
 
