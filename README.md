@@ -8,7 +8,8 @@ In this project you are a bmx racer that search his parent
 ### Getting Started
 first download and unzip the rar file inside a folder, and then open the .exe file, important not to delete the extra files
 
-https://drive.google.com/file/d/1GktBkppaF9za06GsgvfioustoZ3hHimL/view?usp=sharing
+https://drive.google.com/file/d/1wca4akzm_cnzJiQWqIhbsa9Vgj7XxVJa/view?usp=sharing
+
 
 ### Prerequisites
 operating system windows, mac, or linux
@@ -32,12 +33,13 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ### Acknowledgments
 the instructor Victor Hugo Cardona
+the instructor Alejandro Diaz 
 
 
 ### links to the cloud files:
 
 executable: 
-https://drive.google.com/file/d/1GktBkppaF9za06GsgvfioustoZ3hHimL/view?usp=sharing
+https://drive.google.com/file/d/1wca4akzm_cnzJiQWqIhbsa9Vgj7XxVJa/view?usp=sharing
 
 Users test document:
 https://drive.google.com/file/d/1jzZfBj2r8TGxBx7Uf44mGrwmokoPmA93/view?usp=sharing
